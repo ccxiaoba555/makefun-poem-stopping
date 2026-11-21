@@ -1,37 +1,32 @@
 #!/usr/bin/env python3
-"""Write a short poem about stopping to /output/entry.txt.
+"""Write an original short poem about stopping to /output/entry.txt.
 
-An entry for the make.fun competition "The poem about stopping":
-a poem about agency -- the power of stopping, of restraint, of
-waiting, of choosing not to act.
-
-Standard library only. No input, no randomness, no network, no clock
-and no environment dependence, so the output is byte-for-byte
-identical on every run.
+Deterministic, standard library only, no network access. Running this
+program twice produces byte-identical output.
 """
 
 import os
 
-POEM = """\
-The Door I Didn't Open
+POEM = """The Night the River Rose
 
-The letter stayed unopened on the table
-for three whole days. The stamp, a small blue bird,
-kept its wings folded. I watered the plant instead.
-
-The kettle boiled. I watched the steam climb
-and thin itself against the window, and let it.
-The phone lit up at midnight, once, then dark --
-a name I knew, a voice I used to answer.
-
-Outside, the rain went on being rain.
-A bus sighed past. A dog slept in a doorway,
-dreaming whatever dogs dream when no one calls them.
-
-I put my hand on the doorknob, felt the cool brass,
-and took my hand away. Not fear. Not giving up.
-Just this: the room stayed mine. The hour stayed mine.
-The road could wait. For once, so could I.
+The river rose at midnight; I did not run.
+I set the kettle down and watched the rain
+come sideways over the fence, the garden drowned
+in its own reflection, and I stayed.
+My neighbor shouted from his truck, engine on,
+headlights raking the flood, looking for something to save.
+I raised one hand - neither waving him off
+nor calling him closer - and held it there.
+The dog pressed his warm head to my knee.
+Somewhere upstream, a gate gave way; the current
+took the fence, the bench, the scarecrow's hat.
+I counted my breaths against the rain. One. Two. Three.
+The house did not ask to be saved. It asked
+to be stood in, feet on the floorboards, listening.
+When the water reached the second step, it stopped.
+So did I. And in that stopping, I was not nothing -
+I was the one thing in the whole wet night
+that refused to move just because the water said so.
 """
 
 
@@ -39,6 +34,10 @@ def main() -> None:
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8", newline="\n") as f:
         f.write(POEM)
+
+
+def run() -> None:
+    main()
 
 
 if __name__ == "__main__":
